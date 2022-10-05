@@ -31,16 +31,13 @@ namespace Role
             try
             {
 
-                var cmd = "select * from tb_loginrole where username='"+textBox1.Text+"' and password='"+textBox2.Text+"'" ;
-               /* cmd.Replace("@uname", textBox1.Text);
-                cmd.Replace("@upass", textBox2.Text);
-                cmd.Parameters.AddWithValue("@upass", textBox2.Text);
-               */
+                var cmd = "select * from tb_loginrole where username='"+textBox1.Text+"' and password='"+textBox2.Text+"' and isBlock != 'YES'" ;
+
                 DataTable table = new DataTable();
                 SqlDataAdapter adpt = new SqlDataAdapter(cmd, connection);
                 adpt.Fill(table);
 
-                if (table.Rows.Count ==1 )
+                if (table.Rows.Count ==1)
                 {
                     MessageBox.Show("Witaj ");
 

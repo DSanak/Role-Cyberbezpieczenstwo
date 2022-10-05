@@ -33,7 +33,7 @@
             this.btn_blockUser = new System.Windows.Forms.Button();
             this.btn_delete = new System.Windows.Forms.Button();
             this.btn_restrictionOff = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.idtxt = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.list_day = new System.Windows.Forms.ListBox();
@@ -51,6 +51,7 @@
             this.bt_userList.TabIndex = 5;
             this.bt_userList.Text = "User list";
             this.bt_userList.UseVisualStyleBackColor = true;
+            this.bt_userList.Click += new System.EventHandler(this.bt_userList_Click);
             // 
             // dataGridView1
             // 
@@ -73,6 +74,7 @@
             this.btn_blockUser.TabIndex = 13;
             this.btn_blockUser.Text = "Block";
             this.btn_blockUser.UseVisualStyleBackColor = true;
+            this.btn_blockUser.Click += new System.EventHandler(this.btn_blockUser_Click);
             // 
             // btn_delete
             // 
@@ -85,6 +87,7 @@
             this.btn_delete.TabIndex = 14;
             this.btn_delete.Text = "Delete";
             this.btn_delete.UseVisualStyleBackColor = true;
+            this.btn_delete.Click += new System.EventHandler(this.btn_delete_Click);
             // 
             // btn_restrictionOff
             // 
@@ -98,12 +101,12 @@
             this.btn_restrictionOff.Text = "Off restriction";
             this.btn_restrictionOff.UseVisualStyleBackColor = true;
             // 
-            // textBox1
+            // idtxt
             // 
-            this.textBox1.Location = new System.Drawing.Point(171, 178);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(59, 22);
-            this.textBox1.TabIndex = 16;
+            this.idtxt.Location = new System.Drawing.Point(171, 178);
+            this.idtxt.Name = "idtxt";
+            this.idtxt.Size = new System.Drawing.Size(59, 22);
+            this.idtxt.TabIndex = 16;
             // 
             // label1
             // 
@@ -148,7 +151,7 @@
             this.Controls.Add(this.list_day);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.idtxt);
             this.Controls.Add(this.btn_restrictionOff);
             this.Controls.Add(this.btn_delete);
             this.Controls.Add(this.btn_blockUser);
@@ -169,7 +172,7 @@
         private System.Windows.Forms.Button btn_blockUser;
         private System.Windows.Forms.Button btn_delete;
         private System.Windows.Forms.Button btn_restrictionOff;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox idtxt;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.ListBox list_day;
