@@ -34,8 +34,8 @@ namespace Role
 
             if (MyConnection.type == "A")
             {
-                button1.Visible = true;
-                button2.Visible = true;
+                bt_userList.Visible = true;
+                btn_managment.Visible = true;
                 button3.Visible = true;
                 button4.Visible = true;
                 button5.Visible = true;
@@ -43,8 +43,8 @@ namespace Role
             }
             else if (MyConnection.type == "U")
             {
-                button1.Visible = false;
-                button2.Visible = false;
+                bt_userList.Visible = false;
+                btn_managment.Visible = false;
                 button3.Visible = true;
                 button4.Visible = false;
                 button5.Visible = false;
@@ -80,6 +80,14 @@ namespace Role
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+
+        private void btn_managment_Click(object sender, EventArgs e)
+        {
+            Managment m = new Managment();
+
+            m.Show();
+            this.Hide();
         }
     }
 }

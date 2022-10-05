@@ -16,48 +16,46 @@ namespace Role
         MyConnection db = new MyConnection();
         public Form1()
         {
+
             InitializeComponent();
 
         }
 
-        
+
 
         private void button1_Click(object sender, EventArgs e)
         {
+            var connection = "Data Source = (localdb)\\MSSQLLocalDB; Initial Catalog = Users; Integrated Security = True";
+
+
             try
             {
+
+                var cmd = "select * from tb_loginrole where username='"+textBox1.Text+"' and password='"+textBox2.Text+"'" ;
+               /* cmd.Replace("@uname", textBox1.Text);
+                cmd.Replace("@upass", textBox2.Text);
+                cmd.Parameters.AddWithValue("@upass", textBox2.Text);
+               */
+                DataTable table = new DataTable();
+                SqlDataAdapter adpt = new SqlDataAdapter(cmd, connection);
+                adpt.Fill(table);
+
+                if (table.Rows.Count ==1 )
+                {
+                    MessageBox.Show("Witaj ");
+
+                    Dashboard d = new Dashboard();
+                    d.Show();
+                    this.Hide();
+                }
+                else MessageBox.Show("Try Agin");
+
                 
-                    SqlCommand cmd = new SqlCommand("sp_Role_Login", db.con);
-                    cmd.CommandType = CommandType.StoredProcedure;
-                    cmd.Parameters.AddWithValue("@uname", textBox1.Text);
-                    cmd.Parameters.AddWithValue("@upass", textBox2.Text);
-                  
-                    db.con.Open();
-                    SqlDataReader rd = cmd.ExecuteReader();
-                    if(rd.HasRows)
-                    {
-                        rd.Read();
-                        if(rd[4].ToString()=="Admin")
-                        {
-                            MyConnection.type = "A";
-                        }
-                        else if (rd[4].ToString() == "User")
-                        {
-                            MyConnection.type = "U";
-                        }
-                        MessageBox.Show("Welcome " + textBox1.Text);
+               
 
-                        Dashboard d = new Dashboard();
-                        d.Show();
-                        this.Hide();
-                    }
-                    else
-                    {
-                        MessageBox.Show("ERROR");
-                    }
 
-                    
-                db.con.Close();
+               
+                
             }
             catch (Exception ex)
             {

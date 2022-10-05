@@ -20,46 +20,43 @@ namespace Role
 
             try
             {
-               
-                    SqlCommand cmd = new SqlCommand("select * from tb_loginrole", db.con);
-                    db.con.Open();
-                    cmd.Parameters.AddWithValue("@uname", reg_username.Text);
-                    cmd.Parameters.AddWithValue("@upass", reg_passwd.Text);
+                var connection = "Data Source = (localdb)\\MSSQLLocalDB; Initial Catalog = Users; Integrated Security = True";
+                var cmd = "select * from tb_loginrole where username='" + reg_username.Text + "'";
 
-                    SqlDataReader rd = cmd.ExecuteReader();
-                    if (rd.HasRows)
-                    {
-                    rd.Read();
-                        if (rd[3].ToString() == reg_username.Text)
-                        {
-                            MessageBox.Show("Taki user juz istnieje");
-                        
-                        }
-                        else if (reg_passwd.Text.Length < 5)
-                        {
-                            MessageBox.Show("Za krótkie haslo");
-                        }
-                        else
-                        {
-                        rd.Close();
-                            SqlCommand register_cmd = new SqlCommand("insert into tb_loginrole (name,username,password,type) values ('" + reg_username.Text + "','" + reg_username.Text + "','" + reg_passwd.Text + "','U')", db.con);
-                            register_cmd.ExecuteNonQuery();
+                DataTable table = new DataTable();
+                SqlDataAdapter adpt = new SqlDataAdapter(cmd, connection);
+                adpt.Fill(table);
 
-                            MessageBox.Show("Poprawna rejestracja");
-                            MessageBox.Show(rd[3].ToString());
+                if (table.Rows.Count > 0)
+                {
+                    MessageBox.Show("Podany uzytkownik już istnieje!");
+                }
+                else
+                {
+                    var register_cmd = "insert into tb_loginrole (name,username,password,type) values ('" + reg_username.Text + "','" + reg_username.Text + "','" + reg_passwd.Text + "','U')";
 
-
-                    }
-
+                    SqlDataAdapter registeradpt = new SqlDataAdapter(register_cmd, connection);
+                    registeradpt.Fill(table);
+                    MessageBox.Show("Poprawna rejestracja");
                 }
 
-                
+
+                //              cmd.Parameters.AddWithValue("@uname", reg_username.Text);
+                //              cmd.Parameters.AddWithValue("@upass", reg_passwd.Text);
+
+
+
+
+
+
+
+
+
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.ToString());
             }
-            db.con.Close();
         }
 
 
