@@ -37,6 +37,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.list_day = new System.Windows.Forms.ListBox();
+            this.btn_home = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -143,11 +144,25 @@
             this.list_day.Size = new System.Drawing.Size(120, 84);
             this.list_day.TabIndex = 19;
             // 
+            // btn_home
+            // 
+            this.btn_home.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.btn_home.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_home.Location = new System.Drawing.Point(676, 364);
+            this.btn_home.Margin = new System.Windows.Forms.Padding(4);
+            this.btn_home.Name = "btn_home";
+            this.btn_home.Size = new System.Drawing.Size(111, 73);
+            this.btn_home.TabIndex = 20;
+            this.btn_home.Text = "Home";
+            this.btn_home.UseVisualStyleBackColor = true;
+            this.btn_home.Click += new System.EventHandler(this.btn_home_Click);
+            // 
             // Managment
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btn_home);
             this.Controls.Add(this.list_day);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label1);
@@ -176,5 +191,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.ListBox list_day;
+        private System.Windows.Forms.Button btn_home;
     }
 }

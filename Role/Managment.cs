@@ -111,5 +111,12 @@ namespace Role
 
             }
         }
+
+        private void btn_home_Click(object sender, EventArgs e)
+        {
+              this.Close();
+            Dashboard dashboard = new Dashboard();
+            dashboard.Show();
+        }
     }
 }

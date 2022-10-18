@@ -14,14 +14,14 @@ namespace Role
     public partial class Form1 : Form
     {
         MyConnection db = new MyConnection();
+        //public static string type;
         public Form1()
         {
 
             InitializeComponent();
+            
 
         }
-
-
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -39,7 +39,22 @@ namespace Role
 
                 if (table.Rows.Count ==1)
                 {
-                    MessageBox.Show("Witaj ");
+                    DataTable dt2 = new DataTable();
+                    var cmd_role = "select type from tb_loginrole where username='" + textBox1.Text + "' and type = 'U'";
+                    SqlDataAdapter adpt2 = new SqlDataAdapter(cmd_role, connection);
+                    adpt2.Fill(dt2);
+                 //   MessageBox.Show(dt2.Rows.Count.ToString());
+                    if (dt2.Rows.Count == 1)
+                    {
+                        MessageBox.Show("Wlazles tu");
+                        MyConnection.type = "U";
+                    }
+                    else MyConnection.type = "A";
+
+
+
+
+                    MessageBox.Show($"Witaj "+textBox1.Text);
 
                     Dashboard d = new Dashboard();
                     d.Show();

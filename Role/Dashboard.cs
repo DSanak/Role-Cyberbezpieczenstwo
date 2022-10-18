@@ -29,7 +29,11 @@ namespace Role
 
         private void Dashboard_Load(object sender, EventArgs e)
         {
-            
+            var connection = "Data Source = (localdb)\\MSSQLLocalDB; Initial Catalog = Users; Integrated Security = True";
+
+
+        
+
 
 
             if (MyConnection.type == "A")
@@ -88,6 +92,13 @@ namespace Role
 
             m.Show();
             this.Hide();
+        }
+
+        private void btn_home_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            Dashboard dashboard = new Dashboard();
+            dashboard.Show();
         }
     }
 }
