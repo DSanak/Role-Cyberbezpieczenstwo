@@ -37,37 +37,55 @@ namespace Role
                 SqlDataAdapter adpt = new SqlDataAdapter(cmd, connection);
                 adpt.Fill(table);
 
-                if (table.Rows.Count ==1)
-                {
-                    DataTable dt2 = new DataTable();
-                    var cmd_role = "select type from tb_loginrole where username='" + textBox1.Text + "' and type = 'U'";
-                    SqlDataAdapter adpt2 = new SqlDataAdapter(cmd_role, connection);
-                    adpt2.Fill(dt2);
-                 //   MessageBox.Show(dt2.Rows.Count.ToString());
-                    if (dt2.Rows.Count == 1)
+                if (table.Rows.Count == 1)
+                {//to coś nie działa nie wiem jeszcze czemu
+                    var cmd_PasswordExpire = "select dayToPasswordExpire from tb_loginrole where username ='" + textBox1.Text + "' and dayToPasswordExpire < 1";
+                    DataTable dt3 = new DataTable();
+                    new SqlDataAdapter(cmd_PasswordExpire, connection);
+                    if (dt3.Rows.Count == 1)
                     {
-                        MessageBox.Show("Wlazles tu");
-                        MyConnection.type = "U";
+                        MessageBox.Show(dt3.Rows.Count.ToString());
+                        MessageBox.Show("Musisz zmienić swoje hasło! ");
+                        this.Close();
+                        new Register().Show();
+
                     }
-                    else MyConnection.type = "A";
+                    else
+                    {
+                        DataTable dt2 = new DataTable();
+                        var cmd_role = "select type from tb_loginrole where username='" + textBox1.Text + "' and type = 'U'";
+                        SqlDataAdapter adpt2 = new SqlDataAdapter(cmd_role, connection);
+                        adpt2.Fill(dt2);
+
+                        if (dt2.Rows.Count == 1)
+                        {
+                            MessageBox.Show("Wlazles tu");
+                            MyConnection.type = "U";
+                        }
+                        else MyConnection.type = "A";
 
 
 
 
-                    MessageBox.Show($"Witaj "+textBox1.Text);
+                        MessageBox.Show($"Witaj " + textBox1.Text);
 
-                    Dashboard d = new Dashboard();
-                    d.Show();
-                    this.Hide();
+                        Dashboard d = new Dashboard();
+                        d.Show();
+                        this.Hide();
+                    }
                 }
                 else MessageBox.Show("Try Agin");
 
-                
-               
 
 
-               
+
+
+
                 
+                //   MessageBox.Show(dt2.Rows.Count.ToString());
+
+
+
             }
             catch (Exception ex)
             {
@@ -81,5 +99,7 @@ namespace Role
             Register register = new Register();
             register.Show();
         }
+
+      
     }
 }

@@ -20,10 +20,7 @@ namespace Role
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-
-        }
+        
 
         private void bt_userList_Click(object sender, EventArgs e)
         {
@@ -39,6 +36,9 @@ namespace Role
                 SqlDataAdapter adpt = new SqlDataAdapter(cmd, connection);
                 adpt.Fill(table);
                 dataGridView1.DataSource = table;
+
+
+                
 
 
             }
@@ -117,6 +117,33 @@ namespace Role
               this.Close();
             Dashboard dashboard = new Dashboard();
             dashboard.Show();
+        }
+
+        private void btn_changePassword_Click(object sender, EventArgs e)
+        {
+            new ChnagePassword().Show();
+
+        }
+
+        private void btnSetDayPasswordExpiers_Click(object sender, EventArgs e)
+        {
+
+            if (idtxt.Text.Length < 0 )
+            {
+                   MessageBox.Show("Podaj id konta");
+              
+            }else
+            {
+                var cmdSetPasswordDay = "UPDATE tb_loginrole SET dayToPasswordExpire = " + list_day.Text + " where Id=" + idtxt.Text + "";
+
+                DataTable table = new DataTable();
+
+                SqlDataAdapter adpt = new SqlDataAdapter(cmdSetPasswordDay, connection);
+                adpt.Fill(table);
+
+                MessageBox.Show("Wykonane :)");
+            }
+          
         }
     }
 }

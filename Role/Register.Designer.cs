@@ -55,6 +55,7 @@
             this.reg_passwd.Name = "reg_passwd";
             this.reg_passwd.Size = new System.Drawing.Size(387, 37);
             this.reg_passwd.TabIndex = 14;
+            this.reg_passwd.UseSystemPasswordChar = true;
             // 
             // reg_username
             // 
@@ -64,6 +65,7 @@
             this.reg_username.Name = "reg_username";
             this.reg_username.Size = new System.Drawing.Size(387, 37);
             this.reg_username.TabIndex = 13;
+            this.reg_username.UseSystemPasswordChar = true;
             // 
             // label2
             // 

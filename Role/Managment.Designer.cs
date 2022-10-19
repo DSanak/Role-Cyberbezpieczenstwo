@@ -35,9 +35,10 @@
             this.btn_restrictionOff = new System.Windows.Forms.Button();
             this.idtxt = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnSetDayPasswordExpiers = new System.Windows.Forms.Button();
             this.list_day = new System.Windows.Forms.ListBox();
             this.btn_home = new System.Windows.Forms.Button();
+            this.btn_changePassword = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -118,24 +119,29 @@
             this.label1.TabIndex = 17;
             this.label1.Text = "Type ID user to modify";
             // 
-            // button1
+            // btnSetDayPasswordExpiers
             // 
-            this.button1.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(12, 360);
-            this.button1.Margin = new System.Windows.Forms.Padding(4);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(231, 77);
-            this.button1.TabIndex = 18;
-            this.button1.Text = "Set day to password expires";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btnSetDayPasswordExpiers.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.btnSetDayPasswordExpiers.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSetDayPasswordExpiers.Location = new System.Drawing.Point(12, 360);
+            this.btnSetDayPasswordExpiers.Margin = new System.Windows.Forms.Padding(4);
+            this.btnSetDayPasswordExpiers.Name = "btnSetDayPasswordExpiers";
+            this.btnSetDayPasswordExpiers.Size = new System.Drawing.Size(231, 77);
+            this.btnSetDayPasswordExpiers.TabIndex = 18;
+            this.btnSetDayPasswordExpiers.Text = "Set day to password expires";
+            this.btnSetDayPasswordExpiers.UseVisualStyleBackColor = true;
+            this.btnSetDayPasswordExpiers.Click += new System.EventHandler(this.btnSetDayPasswordExpiers_Click);
             // 
             // list_day
             // 
             this.list_day.FormattingEnabled = true;
             this.list_day.ItemHeight = 16;
             this.list_day.Items.AddRange(new object[] {
+            "0",
+            "1",
+            "2",
+            "3",
+            "4",
             "5",
             "10",
             "30"});
@@ -157,14 +163,28 @@
             this.btn_home.UseVisualStyleBackColor = true;
             this.btn_home.Click += new System.EventHandler(this.btn_home_Click);
             // 
+            // btn_changePassword
+            // 
+            this.btn_changePassword.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.btn_changePassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_changePassword.Location = new System.Drawing.Point(602, 273);
+            this.btn_changePassword.Margin = new System.Windows.Forms.Padding(4);
+            this.btn_changePassword.Name = "btn_changePassword";
+            this.btn_changePassword.Size = new System.Drawing.Size(185, 56);
+            this.btn_changePassword.TabIndex = 21;
+            this.btn_changePassword.Text = "Change Password";
+            this.btn_changePassword.UseVisualStyleBackColor = true;
+            this.btn_changePassword.Click += new System.EventHandler(this.btn_changePassword_Click);
+            // 
             // Managment
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btn_changePassword);
             this.Controls.Add(this.btn_home);
             this.Controls.Add(this.list_day);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnSetDayPasswordExpiers);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.idtxt);
             this.Controls.Add(this.btn_restrictionOff);
@@ -189,8 +209,9 @@
         private System.Windows.Forms.Button btn_restrictionOff;
         private System.Windows.Forms.TextBox idtxt;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnSetDayPasswordExpiers;
         private System.Windows.Forms.ListBox list_day;
         private System.Windows.Forms.Button btn_home;
+        private System.Windows.Forms.Button btn_changePassword;
     }
 }
